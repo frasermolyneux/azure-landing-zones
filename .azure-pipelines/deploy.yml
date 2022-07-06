@@ -1,0 +1,28 @@
+trigger: none
+
+pool: 'Dedicated'
+
+resources:
+  pipelines:
+  - pipeline: azure-landing-zones.Validate
+    source: azure-landing-zones.Validate
+    trigger: true
+
+stages: 
+- stage: DeployPrdPlatform
+  jobs:
+  - job: DeployPrdPlatformBicep
+    steps:
+      - task: AzureCLI@2
+        displayName: DeployPrdPlatformBicep
+        inputs:
+          azureSubscription: 'tenant-mgmt-root'
+          scriptType: 'pscore'
+          scriptLocation: 'inlineScript'
+          inlineScript: |
+            az deployment tenant create `
+              --template-file bicep/platform.bicep `
+              --location 'uksouth' `
+              --parameters parLocation='uksouth' `
+                parEnvironment='prd' `
+                parManagementSubscriptionId='7760848c-794d-4a19-8cb2-52f71a21ac2b'
