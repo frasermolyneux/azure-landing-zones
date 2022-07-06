@@ -74,7 +74,7 @@ module subscriptionPlacementManagement 'subscriptionPlacement/subscriptionPlacem
     parSubscriptionIds: [
       '7760848c-794d-4a19-8cb2-52f71a21ac2b' //sub-platform-management
     ]
-    parTargetManagementGroupId: managementGroups.outputs.outTopLevelManagementGroupId
+    parTargetManagementGroupId: managementGroups.outputs.outTopLevelManagementGroupName
   }
 }
 
@@ -88,7 +88,7 @@ module subscriptionPlacementConnectivity 'subscriptionPlacement/subscriptionPlac
     parSubscriptionIds: [
       'db34f572-8b71-40d6-8f99-f29a27612144' //sub-platform-connectivity
     ]
-    parTargetManagementGroupId: managementGroups.outputs.outPlatformConnectivityManagementGroupId
+    parTargetManagementGroupId: managementGroups.outputs.outPlatformConnectivityManagementGroupName
   }
 }
 
@@ -102,7 +102,7 @@ module subscriptionPlacementIdentity 'subscriptionPlacement/subscriptionPlacemen
     parSubscriptionIds: [
       'c391a150-f992-41a6-bc81-ebc22bc64376' //sub-platform-identity
     ]
-    parTargetManagementGroupId: managementGroups.outputs.outPlatformIdentityManagementGroupId
+    parTargetManagementGroupId: managementGroups.outputs.outPlatformIdentityManagementGroupName
   }
 }
 
@@ -121,7 +121,7 @@ module subscriptionPlacementLandingZones 'subscriptionPlacement/subscriptionPlac
       '903b6685-c12a-4703-ac54-7ec1ff15ca43' //sub-platform-launchpad
       '32444f38-32f4-409f-889c-8e8aa2b5b4d1' //XI-Pay-As-You-Go
     ]
-    parTargetManagementGroupId: managementGroups.outputs.outLandingZonesManagementGroupId
+    parTargetManagementGroupId: managementGroups.outputs.outLandingZonesManagementGroupName
   }
 }
 
@@ -135,7 +135,7 @@ module subscriptionPlacementSandbox 'subscriptionPlacement/subscriptionPlacement
     parSubscriptionIds: [
       '4ebd4bf2-7dd9-40b0-b2a4-e687ded49112' //Pay-As-You-Go Dev/Test
     ]
-    parTargetManagementGroupId: managementGroups.outputs.outSandboxManagementGroupId
+    parTargetManagementGroupId: managementGroups.outputs.outSandboxManagementGroupName
   }
 }
 
