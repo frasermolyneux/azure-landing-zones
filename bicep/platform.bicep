@@ -74,7 +74,7 @@ module subscriptionPlacementManagement 'subscriptionPlacement/subscriptionPlacem
     parSubscriptionIds: [
       '7760848c-794d-4a19-8cb2-52f71a21ac2b' //sub-platform-management
     ]
-    parTargetManagementGroupId: managementGroups.outputs.outTopLevelManagementGroupName
+    parTargetManagementGroupId: managementGroups.outputs.outPlatformManagementGroupName
   }
 }
 
