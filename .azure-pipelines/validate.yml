@@ -28,7 +28,7 @@ stages:
           scriptType: 'pscore'
           scriptLocation: 'inlineScript'
           inlineScript: |
-            az deployment sub validate `
+            az deployment tenant validate `
               --template-file bicep/platform.bicep `
               --location 'uksouth' `
               --parameters parLocation='uksouth' `
