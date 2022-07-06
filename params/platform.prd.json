@@ -10,6 +10,13 @@
         },
         "parManagementSubscriptionId": {
             "value": "7760848c-794d-4a19-8cb2-52f71a21ac2b"
+        },
+        "parResourceTags": {
+            "value": {
+                "Environment": "prd",
+                "DeployedBy": "AzDo-Bicep",
+                "Git": "https://github.com/frasermolyneux/azure-landing-zones"
+            }
         }
     }
 }
