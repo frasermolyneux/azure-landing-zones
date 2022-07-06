@@ -1,0 +1,37 @@
+trigger:
+  branches:
+    include:
+    - '*'
+
+pool: 'Dedicated'
+
+stages: 
+- stage: ValidateBicep
+  jobs: 
+  - job: LintCode
+    displayName: Lint Code
+    steps:
+      - script: |
+          az bicep build --file bicep/platform.bicep
+          az bicep build --file bicep/services.bicep
+        name: LintBicepCode
+        displayName: Run Bicep Linter
+
+  - job: ValidateBicepCode
+    dependsOn: [LintCode]
+    displayName: Validate Bicep Code
+    steps:
+      - task: AzureCLI@2
+        name: RunPreflightValidation
+        displayName: Run Preflight Validation
+        inputs:
+          azureSubscription: 'sub-fm-geolocation-prd'
+          scriptType: 'pscore'
+          scriptLocation: 'inlineScript'
+          inlineScript: |
+            az deployment sub validate `
+              --template-file bicep/platform.bicep `
+              --location 'uksouth' `
+              --parameters parLocation='uksouth' `
+                parEnvironment='prd' `
+                parManagementSubscriptionId='7760848c-794d-4a19-8cb2-52f71a21ac2b'
