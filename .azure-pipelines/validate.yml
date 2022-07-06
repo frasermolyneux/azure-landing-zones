@@ -34,7 +34,7 @@ stages:
               --parameters @params/platform.prd.json
 
       - task: AzureCLI@2
-        name: RunPreflightValidation
+        name: RunWhatIfDeploy
         displayName: Run What-If Deploy
         inputs:
           azureSubscription: 'tenant-mgmt-root'
