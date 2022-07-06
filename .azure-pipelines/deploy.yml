@@ -23,4 +23,4 @@ stages:
             az deployment tenant create `
               --template-file bicep/platform.bicep `
               --location 'uksouth' `
-              --parameters @params/services.prd.json
+              --parameters @params/platform.prd.json
