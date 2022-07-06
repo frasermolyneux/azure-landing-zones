@@ -23,6 +23,4 @@ stages:
             az deployment tenant create `
               --template-file bicep/platform.bicep `
               --location 'uksouth' `
-              --parameters parLocation='uksouth' `
-                parEnvironment='prd' `
-                parManagementSubscriptionId='7760848c-794d-4a19-8cb2-52f71a21ac2b'
+              --parameters @params/services.prd.json
