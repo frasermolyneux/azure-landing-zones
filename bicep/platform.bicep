@@ -4,7 +4,7 @@ targetScope = 'tenant'
 param parLocation string
 param parEnvironment string
 param parManagementSubscriptionId string
-param parResourceTags object
+param parTags object
 
 // Variables
 var varLoggingResourceGroupName = 'rg-platform-logging-${parEnvironment}-${parLocation}'
@@ -47,7 +47,7 @@ module loggingResourceGroup 'resourceGroup/resourceGroup.bicep' = {
   params: {
     parLocation: parLocation
     parResourceGroupName: varLoggingResourceGroupName
-    parTags: parResourceTags
+    parTags: parTags
   }
 }
 
@@ -63,7 +63,7 @@ module platformLogging 'logging/logging.bicep' = {
     parLogAnalyticsWorkspaceLogRetentionInDays: 30
     parAutomationAccountName: varAutomationAccountName
     parAutomationAccountLocation: parLocation
-    parTags: parResourceTags
+    parTags: parTags
   }
 }
 

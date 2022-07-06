@@ -11,7 +11,7 @@
         "parManagementSubscriptionId": {
             "value": "7760848c-794d-4a19-8cb2-52f71a21ac2b"
         },
-        "parResourceTags": {
+        "parTags": {
             "value": {
                 "Environment": "prd",
                 "DeployedBy": "AzDo-Bicep",
