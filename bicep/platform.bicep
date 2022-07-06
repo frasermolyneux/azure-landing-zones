@@ -18,6 +18,7 @@ module managementGroups 'managementGroups/managementGroups.bicep' = {
   params: {
     parTopLevelManagementGroupPrefix: 'alz'
     parLandingZoneMgAlzDefaultsEnable: false
+    parTelemetryOptOut: true
   }
 }
 
@@ -27,7 +28,9 @@ module customPolicyDefinitions 'policy/definitions/customPolicyDefinitions.bicep
   ]
   name: 'customPolicyDefinitions'
   scope: managementGroup('alz')
-  params: {}
+  params: {
+    parTelemetryOptOut: true
+  }
 }
 
 module customRoleDefinitions 'customRoleDefinitions/customRoleDefinitions.bicep' = {
@@ -38,6 +41,7 @@ module customRoleDefinitions 'customRoleDefinitions/customRoleDefinitions.bicep'
   scope: managementGroup('alz')
   params: {
     parAssignableScopeManagementGroupId: 'alz'
+    parTelemetryOptOut: true
   }
 }
 
@@ -48,6 +52,7 @@ module loggingResourceGroup 'resourceGroup/resourceGroup.bicep' = {
     parLocation: parLocation
     parResourceGroupName: varLoggingResourceGroupName
     parTags: parTags
+    parTelemetryOptOut: true
   }
 }
 
@@ -64,6 +69,7 @@ module platformLogging 'logging/logging.bicep' = {
     parAutomationAccountName: varAutomationAccountName
     parAutomationAccountLocation: parLocation
     parTags: parTags
+    parTelemetryOptOut: true
   }
 }
 
@@ -78,6 +84,7 @@ module subscriptionPlacementManagement 'subscriptionPlacement/subscriptionPlacem
       '7760848c-794d-4a19-8cb2-52f71a21ac2b' //sub-platform-management
     ]
     parTargetManagementGroupId: managementGroups.outputs.outPlatformManagementGroupName
+    parTelemetryOptOut: true
   }
 }
 
@@ -92,6 +99,7 @@ module subscriptionPlacementConnectivity 'subscriptionPlacement/subscriptionPlac
       'db34f572-8b71-40d6-8f99-f29a27612144' //sub-platform-connectivity
     ]
     parTargetManagementGroupId: managementGroups.outputs.outPlatformConnectivityManagementGroupName
+    parTelemetryOptOut: true
   }
 }
 
@@ -106,6 +114,7 @@ module subscriptionPlacementIdentity 'subscriptionPlacement/subscriptionPlacemen
       'c391a150-f992-41a6-bc81-ebc22bc64376' //sub-platform-identity
     ]
     parTargetManagementGroupId: managementGroups.outputs.outPlatformIdentityManagementGroupName
+    parTelemetryOptOut: true
   }
 }
 
@@ -125,6 +134,7 @@ module subscriptionPlacementLandingZones 'subscriptionPlacement/subscriptionPlac
       '32444f38-32f4-409f-889c-8e8aa2b5b4d1' //XI-Pay-As-You-Go
     ]
     parTargetManagementGroupId: managementGroups.outputs.outLandingZonesManagementGroupName
+    parTelemetryOptOut: true
   }
 }
 
@@ -139,6 +149,7 @@ module subscriptionPlacementSandbox 'subscriptionPlacement/subscriptionPlacement
       '4ebd4bf2-7dd9-40b0-b2a4-e687ded49112' //Pay-As-You-Go Dev/Test
     ]
     parTargetManagementGroupId: managementGroups.outputs.outSandboxManagementGroupName
+    parTelemetryOptOut: true
   }
 }
 
@@ -151,5 +162,6 @@ module customPolicyAssignments 'policyAssignments/policyAssignments.bicep' = {
   params: {
     parTopLevelManagementGroupPrefix: 'alz'
     parLogAnalyticsWorkspaceResourceID: platformLogging.outputs.outLogAnalyticsWorkspaceId
+    parTelemetryOptOut: true
   }
 }
