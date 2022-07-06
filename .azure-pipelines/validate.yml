@@ -32,3 +32,16 @@ stages:
               --template-file bicep/platform.bicep `
               --location 'uksouth' `
               --parameters @params/platform.prd.json
+
+      - task: AzureCLI@2
+        name: RunPreflightValidation
+        displayName: Run What-If Deploy
+        inputs:
+          azureSubscription: 'tenant-mgmt-root'
+          scriptType: 'pscore'
+          scriptLocation: 'inlineScript'
+          inlineScript: |
+            az deployment tenant what-if `
+              --template-file bicep/platform.bicep `
+              --location 'uksouth' `
+              --parameters @params/platform.prd.json
