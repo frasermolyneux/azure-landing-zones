@@ -6,7 +6,9 @@ resources:
   pipelines:
   - pipeline: azure-landing-zones.Validate
     source: azure-landing-zones.Validate
-    trigger: true
+    trigger: 
+      tags:
+      - '*'
 
 stages: 
 - stage: DeployPrdPlatform
