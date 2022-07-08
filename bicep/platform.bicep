@@ -131,7 +131,7 @@ module subscriptionPlacementLandingZones 'subscriptionPlacement/subscriptionPlac
       'f857cea2-c7c0-4aef-b6b6-0c1ed18aafde' //Personal-Pay-As-You-Go
       'd3b204ab-7c2b-47f7-8d5a-de19e85591e7' //sub-fm-geolocation-prd
       '903b6685-c12a-4703-ac54-7ec1ff15ca43' //sub-platform-strategic
-      '32444f38-32f4-409f-889c-8e8aa2b5b4d1' //XI-Pay-As-You-Go
+      '32444f38-32f4-409f-889c-8e8aa2b5b4d1' //sub-xi-portal-prd
     ]
     parTargetManagementGroupId: managementGroups.outputs.outLandingZonesManagementGroupName
     parTelemetryOptOut: true

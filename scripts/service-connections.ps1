@@ -21,11 +21,11 @@ $subscriptions = @(
         BuiltInRoles     = @()
     }
     @{
-        ConnectionName   = "spn-ado-Personal-Public-dns-mgmt"
+        ConnectionName   = "spn-ado-Personal-Public-platform-connectivity"
         SubscriptionName = "sub-platform-connectivity"
         SubscriptionId   = "db34f572-8b71-40d6-8f99-f29a27612144"
         AzDoProject      = "Personal-Public"
-        Workload         = "dns-mgmt"
+        Workload         = "platform-connectivity"
         Permissions      = @(
             @{
                 Role  = "Contributor"
@@ -52,6 +52,23 @@ $subscriptions = @(
         )
         BuiltInRoles     = @(
             "158c047a-c907-4556-b7ef-446551a6b5f7" # Cloud application administrator
+        )
+    }
+    @{
+        ConnectionName   = "spn-ado-XtremeIdiots-xtremeidiots-portal-prd"
+        SubscriptionName = "sub-xi-portal-prd"
+        SubscriptionId   = "32444f38-32f4-409f-889c-8e8aa2b5b4d1"
+        AzDoProject      = "XtremeIdiots"
+        Workload         = "xtremeidiots-portal-prd"
+        Permissions      = @(
+            @{
+                Role  = "Contributor"
+                Scope = "/subscriptions/32444f38-32f4-409f-889c-8e8aa2b5b4d1"
+            }
+        )
+        BuiltInRoles     = @(
+            "158c047a-c907-4556-b7ef-446551a6b5f7" # Cloud application administrator
+            "9360feb5-f418-4baa-8175-e2a00bac4301" # Directory Writers
         )
     }
     @{
