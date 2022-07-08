@@ -20,6 +20,19 @@ $subscriptions = @(
         )
     }
     @{
+        ConnectionName = "spn-ado-Personal-Public-dns-mgmt"
+        SubscriptionName = "sub-platform-connectivity"
+        SubscriptionId = "db34f572-8b71-40d6-8f99-f29a27612144"
+        AzDoProject = "Personal-Public"
+        Workload = "dns-mgmt"
+        Permissions = @(
+            @{
+                Role = "Contributor"
+                Scope = "/subscriptions/db34f572-8b71-40d6-8f99-f29a27612144"
+            }
+        )
+    }
+    @{
         ConnectionName = "spn-ado-Personal-Public-geolocation-prd"
         SubscriptionName = "sub-fm-geolocation-prd"
         SubscriptionId = "d3b204ab-7c2b-47f7-8d5a-de19e85591e7"
