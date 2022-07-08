@@ -47,7 +47,11 @@ $subscriptions = @(
             }
             @{
                 Role  = "Contributor"
-                Scope = "/subscriptions/db34f572-8b71-40d6-8f99-f29a27612144/resourceGroups/rg-dns-prd-uksouth"
+                Scope = "/subscriptions/db34f572-8b71-40d6-8f99-f29a27612144/resourceGroups/rg-platform-dns-prd-uksouth"
+            }
+            @{
+                Role  = "Contributor"
+                Scope = "/subscriptions/db34f572-8b71-40d6-8f99-f29a27612144/resourceGroups/rg-platform-frontdoor-prd-uksouth"
             }
         )
         BuiltInRoles     = @(
