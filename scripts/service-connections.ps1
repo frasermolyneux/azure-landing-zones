@@ -45,6 +45,10 @@ $subscriptions = @(
                 Role  = "Contributor"
                 Scope = "/subscriptions/d3b204ab-7c2b-47f7-8d5a-de19e85591e7"
             }
+            @{
+                Role  = "Contributor"
+                Scope = "/subscriptions/db34f572-8b71-40d6-8f99-f29a27612144/resourceGroups/rg-dns-prd-uksouth"
+            }
         )
         BuiltInRoles     = @(
             "158c047a-c907-4556-b7ef-446551a6b5f7" # Cloud application administrator
