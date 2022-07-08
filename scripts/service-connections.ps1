@@ -3,6 +3,23 @@ $organization = "https://dev.azure.com/frasermolyneux/"
 
 $subscriptions = @(
     @{
+        ConnectionName = "spn-ado-Personal-Public-azlanding-zones"
+        SubscriptionName = "sub-platform-management"
+        SubscriptionId = "7760848c-794d-4a19-8cb2-52f71a21ac2b"
+        AzDoProject = "Personal-Public"
+        Workload = "azlanding-zones"
+        Permissions = @(
+            @{
+                Role = "Owner"
+                Scope = "/"
+            }
+            @{
+                Role = "Contributor"
+                Scope = "/subscriptions/7760848c-794d-4a19-8cb2-52f71a21ac2b"
+            }
+        )
+    }
+    @{
         ConnectionName = "spn-ado-Personal-Public-geolocation-prd"
         SubscriptionName = "sub-fm-geolocation-prd"
         SubscriptionId = "d3b204ab-7c2b-47f7-8d5a-de19e85591e7"

@@ -16,7 +16,7 @@ stages:
       - task: AzureCLI@2
         displayName: DeployPrdPlatformBicep
         inputs:
-          azureSubscription: 'tenant-mgmt-root'
+          azureSubscription: 'spn-ado-Personal-Public-azlanding-zones'
           scriptType: 'pscore'
           scriptLocation: 'inlineScript'
           inlineScript: |
