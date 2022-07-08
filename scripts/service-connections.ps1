@@ -48,8 +48,12 @@ $subscriptions = @(
 )
 
 $subscriptions | ForEach-Object {
-    $spn = az ad sp create-for-rbac --display-name $_.ConnectionName | ConvertFrom-Json
-
+    $spn = (az ad sp list --filter "displayName eq '$($_.ConnectionName)'") | ConvertFrom-Json
+    if ($spn.Count -eq 0)
+    {
+        $spn = az ad sp create-for-rbac --display-name $_.ConnectionName | ConvertFrom-Json
+    }
+    
     $_.Permissions | ForEach-Object {
         az role assignment create `
             --assignee $spn.appId `
@@ -60,9 +64,9 @@ $subscriptions | ForEach-Object {
     $env:AZURE_DEVOPS_EXT_AZURE_RM_SERVICE_PRINCIPAL_KEY=$spn.password
 
     $serviceEndpoints = az devops service-endpoint list --organization $organization --project $_.AzDoProject | ConvertFrom-Json
-    $existing = $serviceEndpoints | Where-Object{$_.authorization.parameters.serviceprincipalid -eq $spn.appId}
+    $existingServiceEndpoint = $serviceEndpoints | Where-Object{$_.authorization.parameters.serviceprincipalid -eq $spn.appId}
 
-    if ($null -eq $existing) {
+    if ($null -eq $existingServiceEndpoint) {
         az devops service-endpoint azurerm create `
         --azure-rm-service-principal-id $spn.appId `
         --azure-rm-subscription-id $_.SubscriptionId `
