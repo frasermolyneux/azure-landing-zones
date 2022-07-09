@@ -57,6 +57,10 @@ $subscriptions = @(
                 Role  = "Contributor"
                 Scope = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-webapps-prd-uksouth"
             }
+            @{
+                Role  = "Contributor"
+                Scope = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-apim-prd-uksouth"
+            }
         )
         BuiltInRoles     = @(
             "158c047a-c907-4556-b7ef-446551a6b5f7" # Cloud application administrator
