@@ -192,7 +192,9 @@ $subscriptions = @(
                 Scope = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43"
             }
         )
-        BuiltInRoles     = @()
+        BuiltInRoles     = @(
+            "9360feb5-f418-4baa-8175-e2a00bac4301" # Directory Writers
+        )
     }
 )
 
