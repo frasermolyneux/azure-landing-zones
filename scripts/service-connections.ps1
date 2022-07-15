@@ -198,6 +198,7 @@ $subscriptions = @(
         )
         BuiltInRoles     = @(
             "9360feb5-f418-4baa-8175-e2a00bac4301" # Directory Writers
+            "fe930be7-5e62-47db-91af-98c3a49a38b1" # User Administrator
         )
     }
 )
