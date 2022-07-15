@@ -112,7 +112,7 @@ $subscriptions = @(
         )
         BuiltInRoles     = @(
             "158c047a-c907-4556-b7ef-446551a6b5f7" # Cloud application administrator
-            "9360feb5-f418-4baa-8175-e2a00bac4301" # Directory Writers
+            "62e90394-69f5-4237-9190-012177145e10" # Global Administrator
         )
     }
     @{
