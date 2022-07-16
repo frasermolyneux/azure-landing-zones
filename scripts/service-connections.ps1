@@ -123,55 +123,6 @@ $subscriptions = @(
         BuiltInRoles     = @()
     }
     @{
-        ConnectionName   = "spn-ado-XtremeIdiots-xtremeidiots-portal-prd"
-        SubscriptionName = "sub-xi-portal-prd"
-        SubscriptionId   = "32444f38-32f4-409f-889c-8e8aa2b5b4d1"
-        AzDoProject      = "XtremeIdiots"
-        Workload         = "xtremeidiots-portal-prd"
-        Permissions      = @(
-            @{
-                Role  = "Contributor"
-                Scope = "/subscriptions/32444f38-32f4-409f-889c-8e8aa2b5b4d1"
-            }
-            @{
-                Role  = "Contributor"
-                Scope = "/subscriptions/db34f572-8b71-40d6-8f99-f29a27612144/resourceGroups/rg-platform-dns-prd-uksouth"
-            }
-            @{
-                Role  = "Contributor"
-                Scope = "/subscriptions/db34f572-8b71-40d6-8f99-f29a27612144/resourceGroups/rg-platform-frontdoor-prd-uksouth"
-            }
-            @{
-                Role  = "Contributor"
-                Scope = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-webapps-prd-uksouth"
-            }
-            @{
-                Role  = "Contributor"
-                Scope = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-apim-prd-uksouth"
-            }
-        )
-        BuiltInRoles     = @(
-            "158c047a-c907-4556-b7ef-446551a6b5f7" # Cloud application administrator
-            "9360feb5-f418-4baa-8175-e2a00bac4301" # Directory Writers
-        )
-    }
-    @{
-        ConnectionName   = "spn-ado-XtremeIdiots-xtremeidiots-portal-webapps"
-        SubscriptionName = "sub-platform-strategic"
-        SubscriptionId   = "903b6685-c12a-4703-ac54-7ec1ff15ca43"
-        AzDoProject      = "XtremeIdiots"
-        Workload         = "xtremeidiots-portal-webapps"
-        Permissions      = @(
-            @{
-                Role  = "Contributor"
-                Scope = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-webapps-prd-uksouth"
-            }
-        )
-        BuiltInRoles     = @(
-            "158c047a-c907-4556-b7ef-446551a6b5f7" # Cloud application administrator
-        )
-    }
-    @{
         ConnectionName   = "spn-ado-XtremeIdiots-Public-xtremeidiots-portal-prd"
         SubscriptionName = "sub-xi-portal-prd"
         SubscriptionId   = "32444f38-32f4-409f-889c-8e8aa2b5b4d1"
@@ -209,7 +160,7 @@ $subscriptions = @(
         )
     }
     @{
-        ConnectionName   = "spn-ado-XtremeIdiots-Public-xtremeidiots-portal-webapps"
+        ConnectionName   = "spn-ado-XtremeIdiots-Public-xtremeidiots-portal-prd-webapps"
         SubscriptionName = "sub-platform-strategic"
         SubscriptionId   = "903b6685-c12a-4703-ac54-7ec1ff15ca43"
         AzDoProject      = "XtremeIdiots-Public"
