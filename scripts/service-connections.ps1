@@ -7,7 +7,6 @@ $subscriptions = @(
         SubscriptionName = "sub-platform-management"
         SubscriptionId   = "7760848c-794d-4a19-8cb2-52f71a21ac2b"
         AzDoProject      = "Personal-Public"
-        Workload         = "azlanding-zones"
         Permissions      = @(
             @{
                 Role  = "Owner"
@@ -25,7 +24,6 @@ $subscriptions = @(
         SubscriptionName = "sub-platform-connectivity"
         SubscriptionId   = "db34f572-8b71-40d6-8f99-f29a27612144"
         AzDoProject      = "Personal-Public"
-        Workload         = "platform-connectivity"
         Permissions      = @(
             @{
                 Role  = "Contributor"
@@ -39,7 +37,6 @@ $subscriptions = @(
         SubscriptionName = "sub-fm-geolocation-prd"
         SubscriptionId   = "d3b204ab-7c2b-47f7-8d5a-de19e85591e7"
         AzDoProject      = "Personal-Public"
-        Workload         = "geolocation-prd"
         Permissions      = @(
             @{
                 Role  = "Contributor"
@@ -71,7 +68,6 @@ $subscriptions = @(
         SubscriptionName = "sub-platform-strategic"
         SubscriptionId   = "903b6685-c12a-4703-ac54-7ec1ff15ca43"
         AzDoProject      = "Personal-Public"
-        Workload         = "geolocation-prd-webapps"
         Permissions      = @(
             @{
                 Role  = "Contributor"
@@ -87,7 +83,6 @@ $subscriptions = @(
         SubscriptionName = "sub-mx-consulting-prd"
         SubscriptionId   = "655da25d-da46-40c0-8e81-5debe2dcd024"
         AzDoProject      = "Personal-Public"
-        Workload         = "mx-consulting-prd"
         Permissions      = @(
             @{
                 Role  = "Contributor"
@@ -113,7 +108,6 @@ $subscriptions = @(
         SubscriptionName = "sub-platform-strategic"
         SubscriptionId   = "903b6685-c12a-4703-ac54-7ec1ff15ca43"
         AzDoProject      = "Personal-Public"
-        Workload         = "mx-consulting-prd-webapps"
         Permissions      = @(
             @{
                 Role  = "Contributor"
@@ -127,7 +121,6 @@ $subscriptions = @(
         SubscriptionName = "sub-xi-portal-prd"
         SubscriptionId   = "32444f38-32f4-409f-889c-8e8aa2b5b4d1"
         AzDoProject      = "XtremeIdiots-Public"
-        Workload         = "xtremeidiots-portal-prd"
         Permissions      = @(
             @{
                 Role  = "Contributor"
@@ -164,23 +157,19 @@ $subscriptions = @(
         SubscriptionName = "sub-platform-strategic"
         SubscriptionId   = "903b6685-c12a-4703-ac54-7ec1ff15ca43"
         AzDoProject      = "XtremeIdiots-Public"
-        Workload         = "xtremeidiots-portal-webapps"
         Permissions      = @(
             @{
                 Role  = "Contributor"
                 Scope = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-webapps-prd-uksouth"
             }
         )
-        BuiltInRoles     = @(
-            "158c047a-c907-4556-b7ef-446551a6b5f7" # Cloud application administrator
-        )
+        BuiltInRoles     = @()
     }
     @{
         ConnectionName   = "spn-ado-Personal-Public-strategic-prd"
         SubscriptionName = "sub-platform-strategic"
         SubscriptionId   = "903b6685-c12a-4703-ac54-7ec1ff15ca43"
         AzDoProject      = "Personal-Public"
-        Workload         = "strategic-prd"
         Permissions      = @(
             @{
                 Role  = "Contributor"
