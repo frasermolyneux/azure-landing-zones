@@ -7,13 +7,14 @@ param parManagementSubscriptionId string
 param parTags object
 
 // Variables
+var varDeploymentPrefix = 'alzPlatform' //Prevent deployment naming conflicts
 var varLoggingResourceGroupName = 'rg-platform-logging-${parEnvironment}-${parLocation}'
 var varLogAnalyticsWorkspaceName = 'log-platform-${parEnvironment}-${parLocation}'
 var varAutomationAccountName = 'aa-platform-${parEnvironment}-${parLocation}'
 
 // Platform
 module managementGroups 'managementGroups/managementGroups.bicep' = {
-  name: 'managementGroups'
+  name: '${varDeploymentPrefix}-managementGroups'
   scope: tenant()
   params: {
     parTopLevelManagementGroupPrefix: 'alz'
@@ -26,7 +27,7 @@ module customPolicyDefinitions 'policy/definitions/customPolicyDefinitions.bicep
   dependsOn: [
     managementGroups
   ]
-  name: 'customPolicyDefinitions'
+  name: '${varDeploymentPrefix}-customPolicyDefinitions'
   scope: managementGroup('alz')
   params: {
     parTelemetryOptOut: true
@@ -37,7 +38,7 @@ module customRoleDefinitions 'customRoleDefinitions/customRoleDefinitions.bicep'
   dependsOn: [
     managementGroups
   ]
-  name: 'customRoleDefinitions'
+  name: '${varDeploymentPrefix}-customRoleDefinitions'
   scope: managementGroup('alz')
   params: {
     parAssignableScopeManagementGroupId: 'alz'
@@ -46,7 +47,7 @@ module customRoleDefinitions 'customRoleDefinitions/customRoleDefinitions.bicep'
 }
 
 module loggingResourceGroup 'resourceGroup/resourceGroup.bicep' = {
-  name: 'loggingResourceGroup'
+  name: '${varDeploymentPrefix}-loggingResourceGroup'
   scope: subscription(parManagementSubscriptionId)
   params: {
     parLocation: parLocation
@@ -56,11 +57,11 @@ module loggingResourceGroup 'resourceGroup/resourceGroup.bicep' = {
   }
 }
 
-module platformLogging 'logging/logging.bicep' = {
+module logging 'logging/logging.bicep' = {
   dependsOn: [
     loggingResourceGroup
   ]
-  name: 'platformLogging'
+  name: '${varDeploymentPrefix}-logging'
   scope: resourceGroup(parManagementSubscriptionId, varLoggingResourceGroupName)
   params: {
     parLogAnalyticsWorkspaceName: varLogAnalyticsWorkspaceName
@@ -73,11 +74,11 @@ module platformLogging 'logging/logging.bicep' = {
   }
 }
 
-module subscriptionPlacementManagement 'subscriptionPlacement/subscriptionPlacement.bicep' = {
+module managementSubscriptionPlacement 'subscriptionPlacement/subscriptionPlacement.bicep' = {
   dependsOn: [
     managementGroups
   ]
-  name: 'subscriptionPlacementManagement'
+  name: '${varDeploymentPrefix}-managementSubscriptionPlacement'
   scope: managementGroup('alz')
   params: {
     parSubscriptionIds: [
@@ -88,11 +89,11 @@ module subscriptionPlacementManagement 'subscriptionPlacement/subscriptionPlacem
   }
 }
 
-module subscriptionPlacementConnectivity 'subscriptionPlacement/subscriptionPlacement.bicep' = {
+module connectivitySubscriptionPlacement 'subscriptionPlacement/subscriptionPlacement.bicep' = {
   dependsOn: [
     managementGroups
   ]
-  name: 'subscriptionPlacementConnectivity'
+  name: '${varDeploymentPrefix}-connectivitySubscriptionPlacement'
   scope: managementGroup('alz')
   params: {
     parSubscriptionIds: [
@@ -103,11 +104,11 @@ module subscriptionPlacementConnectivity 'subscriptionPlacement/subscriptionPlac
   }
 }
 
-module subscriptionPlacementIdentity 'subscriptionPlacement/subscriptionPlacement.bicep' = {
+module identitySubscriptionPlacement 'subscriptionPlacement/subscriptionPlacement.bicep' = {
   dependsOn: [
     managementGroups
   ]
-  name: 'subscriptionPlacementIdentity'
+  name: '${varDeploymentPrefix}-identitySubscriptionPlacement'
   scope: managementGroup('alz')
   params: {
     parSubscriptionIds: [
@@ -118,11 +119,11 @@ module subscriptionPlacementIdentity 'subscriptionPlacement/subscriptionPlacemen
   }
 }
 
-module subscriptionPlacementLandingZones 'subscriptionPlacement/subscriptionPlacement.bicep' = {
+module landingZoneSubscriptionPlacement 'subscriptionPlacement/subscriptionPlacement.bicep' = {
   dependsOn: [
     managementGroups
   ]
-  name: 'subscriptionPlacementLandingZones'
+  name: '${varDeploymentPrefix}-landingZoneSubscriptionPlacement'
   scope: managementGroup('alz')
   params: {
     parSubscriptionIds: [
@@ -138,11 +139,11 @@ module subscriptionPlacementLandingZones 'subscriptionPlacement/subscriptionPlac
   }
 }
 
-module subscriptionPlacementSandbox 'subscriptionPlacement/subscriptionPlacement.bicep' = {
+module sandboxSubscriptionPlacement 'subscriptionPlacement/subscriptionPlacement.bicep' = {
   dependsOn: [
     managementGroups
   ]
-  name: 'subscriptionPlacementSandbox'
+  name: '${varDeploymentPrefix}-sandboxSubscriptionPlacement'
   scope: managementGroup('alz')
   params: {
     parSubscriptionIds: [
@@ -153,15 +154,15 @@ module subscriptionPlacementSandbox 'subscriptionPlacement/subscriptionPlacement
   }
 }
 
-module customPolicyAssignments 'policyAssignments/policyAssignments.bicep' = {
+module policyAssignments 'policyAssignments/policyAssignments.bicep' = {
   dependsOn: [
     customPolicyDefinitions
   ]
-  name: 'customPolicyAssignments'
+  name: '${varDeploymentPrefix}-policyAssignments'
   scope: managementGroup('alz')
   params: {
     parTopLevelManagementGroupPrefix: 'alz'
-    parLogAnalyticsWorkspaceResourceID: platformLogging.outputs.outLogAnalyticsWorkspaceId
+    parLogAnalyticsWorkspaceResourceID: logging.outputs.outLogAnalyticsWorkspaceId
     parTelemetryOptOut: true
   }
 }
