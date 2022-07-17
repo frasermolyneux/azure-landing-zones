@@ -163,7 +163,10 @@ $subscriptions = @(
                 Scope = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-webapps-prd-uksouth"
             }
         )
-        BuiltInRoles     = @()
+        BuiltInRoles     = @(
+            "158c047a-c907-4556-b7ef-446551a6b5f7" # Cloud application administrator
+            "9360feb5-f418-4baa-8175-e2a00bac4301" # Directory Writers
+        )
     }
     @{
         ConnectionName   = "spn-ado-Personal-Public-strategic-prd"
