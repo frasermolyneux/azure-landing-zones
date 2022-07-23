@@ -1,4 +1,5 @@
 trigger: none
+pr: none
 
 pool: 'Dedicated'
 
@@ -6,21 +7,30 @@ resources:
   pipelines:
   - pipeline: azure-landing-zones.Validate
     source: azure-landing-zones.Validate
-    trigger: true
+    trigger:
+      branches:
+        include:
+        - main
 
 stages: 
 - stage: DeployPrdPlatform
   jobs:
-  - job: DeployPrdPlatformBicep
-    steps:
-      - task: AzureCLI@2
-        displayName: DeployPrdPlatformBicep
-        inputs:
-          azureSubscription: 'spn-ado-Personal-Public-azlanding-zones'
-          scriptType: 'pscore'
-          scriptLocation: 'inlineScript'
-          inlineScript: |
-            az deployment tenant create `
-              --template-file bicep/platform.bicep `
-              --location 'uksouth' `
-              --parameters @params/platform.prd.json
+
+  - deployment: DeployPrdPlatformBicep
+    environment: 'azlanding-zones'
+
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+            - task: AzureCLI@2
+              displayName: DeployPrdPlatformBicep
+              inputs:
+                azureSubscription: 'spn-ado-Personal-Public-azlanding-zones'
+                scriptType: 'pscore'
+                scriptLocation: 'inlineScript'
+                inlineScript: |
+                  az deployment tenant create `
+                    --template-file bicep/platform.bicep `
+                    --location 'uksouth' `
+                    --parameters @params/platform.prd.json
