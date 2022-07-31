@@ -45,6 +45,19 @@ $subscriptions = @(
         )
         BuiltInRoles     = @()
     }
+    @{#spn-ado-Personal-Public-bicep-modules
+        ConnectionName   = "spn-ado-Personal-Public-bicep-modules"
+        SubscriptionName = "sub-platform-strategic"
+        SubscriptionId   = "903b6685-c12a-4703-ac54-7ec1ff15ca43"
+        AzDoProject      = "Personal-Public"
+        Permissions      = @(
+            @{
+                Role  = "Contributor"
+                Scope = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-acr-prd-uksouth/providers/Microsoft.ContainerRegistry/registries/acrmxplatformprduksouth"
+            }
+        )
+        BuiltInRoles     = @()
+    }
     @{#spn-ado-Personal-Public-geolocation-prd
         ConnectionName   = "spn-ado-Personal-Public-geolocation-prd"
         SubscriptionName = "sub-fm-geolocation-prd"
