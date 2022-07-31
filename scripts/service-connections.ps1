@@ -234,6 +234,23 @@ $subscriptions = @(
             "62e90394-69f5-4237-9190-012177145e10" # Global Administrator
         )
     }
+    @{#spn-ado-XtremeIdiots-Public-demomanager-prd
+        ConnectionName   = "spn-ado-XtremeIdiots-Public-xtremeidiots-demomanager-prd"
+        SubscriptionName = "sub-xi-demomanager-prd"
+        SubscriptionId   = "845766d6-b73f-49aa-a9f6-eaf27e20b7a8"
+        AzDoProject      = "XtremeIdiots-Public"
+        Permissions      = @(
+            @{
+                Role  = "Contributor"
+                Scope = "/subscriptions/845766d6-b73f-49aa-a9f6-eaf27e20b7a8"
+            }
+            @{
+                Role  = "AcrPull"
+                Scope = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-acr-prd-uksouth/providers/Microsoft.ContainerRegistry/registries/acrmxplatformprduksouth"
+            }
+        )
+        BuiltInRoles     = @()
+    }
 )
 
 $subscriptions | ForEach-Object {

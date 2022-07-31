@@ -127,8 +127,8 @@ module landingZoneSubscriptionPlacement 'subscriptionPlacement/subscriptionPlace
   scope: managementGroup('alz')
   params: {
     parSubscriptionIds: [
-      '655da25d-da46-40c0-8e81-5debe2dcd024' //MX-Pay-As-You-Go
-      '845766d6-b73f-49aa-a9f6-eaf27e20b7a8' //Pay-As-You-Go
+      '655da25d-da46-40c0-8e81-5debe2dcd024' //sub-mx-consulting-prd
+      '845766d6-b73f-49aa-a9f6-eaf27e20b7a8' //sub-xi-demomanager-prd
       'f857cea2-c7c0-4aef-b6b6-0c1ed18aafde' //Personal-Pay-As-You-Go
       'd3b204ab-7c2b-47f7-8d5a-de19e85591e7' //sub-fm-geolocation-prd
       '903b6685-c12a-4703-ac54-7ec1ff15ca43' //sub-platform-strategic
