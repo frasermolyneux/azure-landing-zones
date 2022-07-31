@@ -2,7 +2,7 @@ $tenantId = "e56a6947-bb9a-4a6e-846a-1f118d1c3a14"
 $organization = "https://dev.azure.com/frasermolyneux/"
 
 $subscriptions = @(
-    @{
+    @{#spn-ado-Personal-Public-azlanding-zones
         ConnectionName   = "spn-ado-Personal-Public-azlanding-zones"
         SubscriptionName = "sub-platform-management"
         SubscriptionId   = "7760848c-794d-4a19-8cb2-52f71a21ac2b"
@@ -19,7 +19,20 @@ $subscriptions = @(
         )
         BuiltInRoles     = @()
     }
-    @{
+    @{#spn-ado-Personal-Public-platform-monitoring
+        ConnectionName   = "spn-ado-Personal-Public-platform-monitoring"
+        SubscriptionName = "sub-platform-management"
+        SubscriptionId   = "7760848c-794d-4a19-8cb2-52f71a21ac2b"
+        AzDoProject      = "Personal-Public"
+        Permissions      = @(
+            @{
+                Role  = "Contributor"
+                Scope = "/subscriptions/7760848c-794d-4a19-8cb2-52f71a21ac2b"
+            }
+        )
+        BuiltInRoles     = @()
+    }
+    @{#spn-ado-Personal-Public-platform-connectivity
         ConnectionName   = "spn-ado-Personal-Public-platform-connectivity"
         SubscriptionName = "sub-platform-connectivity"
         SubscriptionId   = "db34f572-8b71-40d6-8f99-f29a27612144"
@@ -32,7 +45,7 @@ $subscriptions = @(
         )
         BuiltInRoles     = @()
     }
-    @{
+    @{#spn-ado-Personal-Public-geolocation-prd
         ConnectionName   = "spn-ado-Personal-Public-geolocation-prd"
         SubscriptionName = "sub-fm-geolocation-prd"
         SubscriptionId   = "d3b204ab-7c2b-47f7-8d5a-de19e85591e7"
@@ -63,7 +76,7 @@ $subscriptions = @(
             "158c047a-c907-4556-b7ef-446551a6b5f7" # Cloud application administrator
         )
     }
-    @{
+    @{#spn-ado-Personal-Public-geolocation-prd-webapps
         ConnectionName   = "spn-ado-Personal-Public-geolocation-prd-webapps"
         SubscriptionName = "sub-platform-strategic"
         SubscriptionId   = "903b6685-c12a-4703-ac54-7ec1ff15ca43"
@@ -78,7 +91,7 @@ $subscriptions = @(
             "158c047a-c907-4556-b7ef-446551a6b5f7" # Cloud application administrator
         )
     }
-    @{
+    @{#spn-ado-Personal-Public-mx-consulting-prd
         ConnectionName   = "spn-ado-Personal-Public-mx-consulting-prd"
         SubscriptionName = "sub-mx-consulting-prd"
         SubscriptionId   = "655da25d-da46-40c0-8e81-5debe2dcd024"
@@ -103,7 +116,7 @@ $subscriptions = @(
         )
         BuiltInRoles     = @()
     }
-    @{
+    @{#spn-ado-Personal-Public-mx-consulting-prd-webapps
         ConnectionName   = "spn-ado-Personal-Public-mx-consulting-prd-webapps"
         SubscriptionName = "sub-platform-strategic"
         SubscriptionId   = "903b6685-c12a-4703-ac54-7ec1ff15ca43"
@@ -116,7 +129,7 @@ $subscriptions = @(
         )
         BuiltInRoles     = @()
     }
-    @{
+    @{#spn-ado-XtremeIdiots-Public-xtremeidiots-portal-prd
         ConnectionName   = "spn-ado-XtremeIdiots-Public-xtremeidiots-portal-prd"
         SubscriptionName = "sub-xi-portal-prd"
         SubscriptionId   = "32444f38-32f4-409f-889c-8e8aa2b5b4d1"
@@ -152,7 +165,7 @@ $subscriptions = @(
             "9360feb5-f418-4baa-8175-e2a00bac4301" # Directory Writers
         )
     }
-    @{
+    @{#spn-ado-XtremeIdiots-Public-xtremeidiots-portal-prd-webapps
         ConnectionName   = "spn-ado-XtremeIdiots-Public-xtremeidiots-portal-prd-webapps"
         SubscriptionName = "sub-platform-strategic"
         SubscriptionId   = "903b6685-c12a-4703-ac54-7ec1ff15ca43"
@@ -168,7 +181,7 @@ $subscriptions = @(
             "9360feb5-f418-4baa-8175-e2a00bac4301" # Directory Writers
         )
     }
-    @{
+    @{#spn-ado-Personal-Public-strategic-prd
         ConnectionName   = "spn-ado-Personal-Public-strategic-prd"
         SubscriptionName = "sub-platform-strategic"
         SubscriptionId   = "903b6685-c12a-4703-ac54-7ec1ff15ca43"
