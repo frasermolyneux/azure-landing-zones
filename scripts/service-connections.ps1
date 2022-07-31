@@ -29,6 +29,10 @@ $subscriptions = @(
                 Role  = "Contributor"
                 Scope = "/subscriptions/7760848c-794d-4a19-8cb2-52f71a21ac2b"
             }
+            @{
+                Role  = "AcrPull"
+                Scope = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-acr-prd-uksouth/providers/Microsoft.ContainerRegistry/registries/acrmxplatformprduksouth"
+            }
         )
         BuiltInRoles     = @()
     }
@@ -41,6 +45,10 @@ $subscriptions = @(
             @{
                 Role  = "Contributor"
                 Scope = "/subscriptions/db34f572-8b71-40d6-8f99-f29a27612144"
+            }
+            @{
+                Role  = "AcrPull"
+                Scope = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-acr-prd-uksouth/providers/Microsoft.ContainerRegistry/registries/acrmxplatformprduksouth"
             }
         )
         BuiltInRoles     = @()
@@ -84,6 +92,10 @@ $subscriptions = @(
                 Role  = "Contributor"
                 Scope = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-apim-prd-uksouth"
             }
+            @{
+                Role  = "AcrPull"
+                Scope = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-acr-prd-uksouth/providers/Microsoft.ContainerRegistry/registries/acrmxplatformprduksouth"
+            }
         )
         BuiltInRoles     = @(
             "158c047a-c907-4556-b7ef-446551a6b5f7" # Cloud application administrator
@@ -125,6 +137,10 @@ $subscriptions = @(
             @{
                 Role  = "Contributor"
                 Scope = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-webapps-prd-uksouth"
+            }
+            @{
+                Role  = "AcrPull"
+                Scope = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-acr-prd-uksouth/providers/Microsoft.ContainerRegistry/registries/acrmxplatformprduksouth"
             }
         )
         BuiltInRoles     = @()
@@ -172,6 +188,10 @@ $subscriptions = @(
                 Role  = "Contributor"
                 Scope = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-sql-prd-uksouth"
             }
+            @{
+                Role  = "AcrPull"
+                Scope = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-acr-prd-uksouth/providers/Microsoft.ContainerRegistry/registries/acrmxplatformprduksouth"
+            }
         )
         BuiltInRoles     = @(
             "158c047a-c907-4556-b7ef-446551a6b5f7" # Cloud application administrator
@@ -203,6 +223,10 @@ $subscriptions = @(
             @{
                 Role  = "Contributor"
                 Scope = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43"
+            }
+            @{
+                Role  = "AcrPull"
+                Scope = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-acr-prd-uksouth/providers/Microsoft.ContainerRegistry/registries/acrmxplatformprduksouth"
             }
         )
         BuiltInRoles     = @(
@@ -238,7 +262,7 @@ $subscriptions | ForEach-Object {
     }
 
     $_.BuiltInRoles | ForEach-Object {
-        . "./azure-landing-zones/scripts/functions/GrantRoleToPrincipal.ps1" `
+        . "./scripts/functions/GrantRoleToPrincipal.ps1" `
             -principalId $spn.id `
             -roleDefinitionId $_
     }
