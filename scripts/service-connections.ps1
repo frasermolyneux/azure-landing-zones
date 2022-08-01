@@ -241,7 +241,7 @@ $subscriptions = @(
         AzDoProject      = "XtremeIdiots-Public"
         Permissions      = @(
             @{
-                Role  = "Contributor"
+                Role  = "Owner"
                 Scope = "/subscriptions/845766d6-b73f-49aa-a9f6-eaf27e20b7a8"
             }
             @{
