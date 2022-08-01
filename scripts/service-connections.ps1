@@ -251,6 +251,46 @@ $subscriptions = @(
         )
         BuiltInRoles     = @()
     }
+    @{#spn-ado-XtremeIdiots-Public-devtest
+        ConnectionName   = "spn-ado-XtremeIdiots-Public-devtest"
+        SubscriptionName = "sub-enterprise-devtest"
+        SubscriptionId   = "1b5b28ed-1365-4a48-b285-80f80a6aaa1b"
+        AzDoProject      = "XtremeIdiots-Public"
+        Permissions      = @(
+            @{
+                Role  = "Contributor"
+                Scope = "/subscriptions/1b5b28ed-1365-4a48-b285-80f80a6aaa1b"
+            }
+            @{
+                Role  = "AcrPull"
+                Scope = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-acr-prd-uksouth/providers/Microsoft.ContainerRegistry/registries/acrmxplatformprduksouth"
+            }
+        )
+        BuiltInRoles     = @(
+            "158c047a-c907-4556-b7ef-446551a6b5f7" # Cloud application administrator
+            "9360feb5-f418-4baa-8175-e2a00bac4301" # Directory Writers
+        )
+    }
+    @{#spn-ado-Personal-Public-devtest
+        ConnectionName   = "spn-ado-Personal-Public-devtest"
+        SubscriptionName = "sub-enterprise-devtest"
+        SubscriptionId   = "1b5b28ed-1365-4a48-b285-80f80a6aaa1b"
+        AzDoProject      = "Personal-Public"
+        Permissions      = @(
+            @{
+                Role  = "Contributor"
+                Scope = "/subscriptions/1b5b28ed-1365-4a48-b285-80f80a6aaa1b"
+            }
+            @{
+                Role  = "AcrPull"
+                Scope = "/subscriptions/903b6685-c12a-4703-ac54-7ec1ff15ca43/resourceGroups/rg-platform-acr-prd-uksouth/providers/Microsoft.ContainerRegistry/registries/acrmxplatformprduksouth"
+            }
+        )
+        BuiltInRoles     = @(
+            "158c047a-c907-4556-b7ef-446551a6b5f7" # Cloud application administrator
+            "9360feb5-f418-4baa-8175-e2a00bac4301" # Directory Writers
+        )
+    }
 )
 
 $subscriptions | ForEach-Object {
